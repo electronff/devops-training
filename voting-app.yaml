@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  vote:
+    image: vote1-app
+    ports:
+      - "5002:80"
+    networks:
+      - aminet2
+  redis:
+    image: redis
+    networks:
+      - aminet2
+  db: 
+    image: postgres:9.4
+    networks:
+      - aminet2
+    environment:
+      - POSTGRES_USER: postgres
+      - POSTGRES_PASSWORD: postgres
+  worker:
+    image: worker1-app
+    networks:
+      - aminet2
+  result:
+    image: result1-app
+    ports:
+      - "5003:80"
+    networks:
+      - aminet2
+networks:
+  aminet2:
+   driver: bridge

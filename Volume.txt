@@ -1,0 +1,16 @@
+Volume
+docker volume create data_volume           to create  a volume name data_volume
+docker volume inspect data_volume	to inspect volume name data_volume
+docker volume remove data_volume
+docker volume prune                        to remove all unused volume
+docker container run --mount \
+source=data_vol1,destination=/var/www/html/index.html, httpd  to mount create a volume 
+
+
+docker container run --mount \
+source=data_vol1,destination=/var/www/html/index.html,readonly httpd  To create a volume in read only
+
+
+
+
+

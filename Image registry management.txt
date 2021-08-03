@@ -1,0 +1,40 @@
+docker run
+docker run ubuntu:trusty   Run ubuntu container with the trusty tag 
+docker pull
+docker search (image name)
+docker serch  --filter stars=10 httpd
+docker search httpd --limit 2
+docker search --filter stars=10 --filter is-official=true httpd
+docker search --filter stars=10 httpd
+docker login
+docker login azr.com:5000  command is used to authenticate with azr.com registry which listens on port 5000
+docker login gcr.io --- to login into a private registry
+docker image tag httpd:alpine httpd:customv1     ---to re-tag an image
+docker image push gcr.io/company/httpd:customv1    ---to push an image to private registry eg GCR
+docker system df  .... to check the size of all images and containers
+docker rmi .............to remove image
+docker image rm httpd:alpine ......to remove a particular image eg httpd
+docker image prune -a ---- to remove all unsued images
+docker image history ubuntu   ... to inspect the image layers
+docker image inspect httpd   ............to inspect images
+docker image inspect httpd -f '{{.Os}}' ..........to dsplay only rth os using json
+docker image inspect httpd -f '{{.Architecture}} {{.Os}}'   .....to display the architecture in json
+docker image inspect webapp -f '{{.Os}} {{.Architecture}}'    to display mltiple line
+docker image save alpine:latest -o alpine.tar ( create a dir. with .tar in your local machine eg alpine.tar)
+docker image load -i alpine.tar   ---to load the saved image 
+docker export (container_name) > testcontainer.tar
+docker image import testcontainer.tar newimage:latest
+docker container commit  httpd customhttpd ..........  to commit a container
+docker images --no-trunc   -----List the full length image IDs.
+Pull the official image, tag it with the address of the internal docker registry and push to the internal docker registry .......You are required to store a copy of the official alpine image in your company’s internal docker registry
+$HOME/.docker/config.json........... When you log in to a registry, the command stores credentials in
+
+
+
+ 
+  
+
+https://docs.docker.com/engine/reference/commandline/pull/
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+https://docs.docker.com/engine/reference/commandline/image/#child-commands
+https://docs.docker.com/engine/reference/commandline/image_prune/#filtering 

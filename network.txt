@@ -1,0 +1,57 @@
+Network
+1: bridge ---default
+priveta internal network and container attached to it by default:
+docker run ubuntu
+2: none
+
+docker run ubuntu --network=none
+
+3: host
+docker run ubuntu --network=host
+
+
+usser-defined networks
+
+docker netwrk create \
+		--driver bridge \
+		--subnet 182.18.0.0/16
+		custom-isolated-network
+
+e.g  docker network create --driver=bridge --subnet=192.168.1.0/24 aminet
+
+
+docker network ls   -----------to see all neworks
+
+
+docker network inspect 599dcaf4e856  to inspect the networks
+
+embedded DNS ..... resolving using container name
+
+docker network connect custom-net my-container  ------------------- to connect a container to a custom network
+
+docker network disconnect custom-net my-container  ------------------- to disconnect a container network
+
+docker network rm custom-net ...........to remove networks
+docker network prune to remove all unused networks
+
+
+
+ 1056  docker run -itd --net=aminet --name secondnet centos:7 bash
+ 1057  docker run -itd --net=aminet --name firstnet centos:7 bash
+ 1058  docker exec firstnet ping secondnet
+ 1059  docker exec  secondnet ping firstnet
+ 1060  docker run -itd --name third  centos:7 bash
+ 1061  docker network connect aminet thirdnet
+ 1063  docker network connect aminet third
+ 1064  docker exec -it third ping firstnet
+ 1066  docker network disconnect aminet third
+ 1069  docker network inspect aminet
+docker network rm aminet     < you must remove all associated containers before you can remove)
+
+
+
+
+
+
+
+

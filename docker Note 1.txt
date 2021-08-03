@@ -1,0 +1,82 @@
+Docker
+1.	Docker account: create one from docker hub
+2.	install docker on your terminal
+3.	login to docker account
+
+Pulling images from docker hub
+
+4.	# docker pull (image)
+	a: systemctl start docker
+	b:systemctl enable docker
+	c: systemctl status docker
+
+To run docker image
+
+5.	# docker run (imagename)
+
+To check install docker images
+
+6.	# docker images
+
+for help
+
+7. #docker run --help
+
+To run container
+a: normal mode 
+8.	#Docker run containerid
+b: interactive mode
+9.	#docker run -it  containerid bash
+c: in detach mode
+10.	#docker run -itd containerid bash
+
+To check runing containers
+11.	# docker ps
+
+To check runing and exited containers
+
+12. # docker ps -a	
+
+To download and run a container at the same time
+a: in interactive mode, name modified and port
+13.	#docker run -it --name=ubuntu_ami -p 80:80  ubuntu bash 
+b: in a detach mode
+14.	#docker run -itd --name=ubuntu_ami -p 80:80  ubuntu bash
+
+
+To start a continer
+a: directly from terminal
+15.	#docker exec 09d(container id) cat /etc/passwd		
+b: To log into container
+16.	#docker attach containerid
+
+To get out of a container
+
+17.	ctrl + P+Q  
+
+To install an apllication in an container e.g ubuntu
+
+Note: try to always update the server before before installing an application..
+
+18.	apt update
+	apt install git
+
+cleaning up continers and images
+
+a: To stop containers
+19.	#docker stop containerId
+b. To remove exited containers
+20. 	#docker rm containerid
+	#docker prune containerid  to remove all stopped container
+	#docker container run --rm ubuntu expr 4 + 5  to remove itselsf after calculating 4+5
+c: To remove Image
+21.	#docker rmi imageid 
+
+to check running process ps -ef
+
+
+
+
+
+
+

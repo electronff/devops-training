@@ -1,0 +1,56 @@
+# to build an image from scrath
+# create a Dockerfile
+# and orginize all the instruction 
+
+FROM centos #base image e.g FROM python etc
+
+LABEL MAINTAINER muritala #Docker username
+
+RUN  yum install update  # command to run
+
+WORKDIR /var/www/html # the working directory
+
+WXPOSE  80           # port number to listen to, and you can open multiple port. 80 90 85 etc
+
+CMD  command line   # command to run when we start the container with the image
+
+ENV         # variable
+COPY     <# to copy file in the image
+ADD     # copy file from url
+
+project
+
+build an image with http:2.4
+copy the index.html file into it.
+when the container is started, it shoukd dislay helloon the browser
+
+solution
+
+FROM httpd:2.4
+
+From Data Service to Everyone:  08:12 PM
+Project:
+build an image with httpd:2.4 as base image and copy the index.html file into it.
+when a container is started using that image it should display "Hello world" on the browser.
+
+sol:
+
+touch Dockerfile
+vi Dockerfile 
+
+
+FROM httpd:2.4
+
+LABEL MAINTAINER muritala
+
+RUN apt update
+RUN apt install vim -y
+
+COPY ./index.html /usr/local/apache2/htdocs/
+
+
+
+
+docker build -t kserge2001/httpd:v2 .
+
+docker push kserge2001/httpd:v2l /usr/local/apache2/htdocs/

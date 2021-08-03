@@ -1,0 +1,6 @@
+How to enable the live restore setting to keep containers alive when the daemon becomes unavailable?
+echo '{"live-restore": true}' >> /etc/docker/daemon.json
+
+note
+https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy
+https://docs.docker.com/config/containers/live-restore/

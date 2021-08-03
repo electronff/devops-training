@@ -1,0 +1,11 @@
+CMD and ENTRYPOINT
+CMD  -----command
+CMD ["bash"]   for ubuntu
+
+An application you are developing requires an httpd server as frontend, a python application as the backend API server, a MongoDB database and a worker developed in Python. What is the recommended approach in building images for these containers?  Build separate images for each component of the application
+
+
+https://docs.docker.com/glossary/#dockerfile
+https://docs.docker.com/engine/reference/builder/#cmd
+https://docs.docker.com/engine/reference/builder/#dockerignore-file
+
